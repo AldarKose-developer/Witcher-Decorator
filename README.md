@@ -1,7 +1,7 @@
 # Witcher-Decorator
  This is my implementation of decorator pattern.
  I decided to implement this strategy by using my favorite game Witcher3
- ## Where I implemented this strategy:
+## How this program works:
  In this program you can create your game character (Witcher).
  During creation, you can choose from which school this witcher is and 
  choose type of armor for him. Chosen school and armor affects to characteristics of witcher.
@@ -32,3 +32,10 @@ Damage: 15.6
 Speed: 2.3
 ```
 
+### Decoartor implemetation:
+##### I have interface Witcher in which I declare all methods
+##### Concrete component in my code is MainCharacter class
+##### Base decorator is WitcherDecarator class which is super class for other Concrete Decorators
+##### Concrete decorators are all schools and armors in game that changes character
+
+I have Concrete Decorators - schools and armor types which extends from Base Decorator "WitcherDecorator" and modify main character health, speed, damage
