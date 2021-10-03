@@ -31,5 +31,4 @@ Health: 176.0
 Damage: 15.6
 Speed: 2.3
 ```
-## Why I used this strategy:
-So by using Decorator pattern here user can create witcher from any school and any type of Armor.
+
