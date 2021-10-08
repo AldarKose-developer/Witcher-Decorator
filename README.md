@@ -31,6 +31,27 @@ Health: 176.0
 Damage: 15.6
 Speed: 2.3
 ```
+#### Code Example
+```
+        Witcher geralt = new WolfSchoolDecorator(new HeavyArmorDecorator(new MainCharacter("Geralt")));
+        System.out.println(geralt.characterInfo());
+        System.out.println("Your Characteristics: ");
+        System.out.println("Health: " + geralt.characterHealth());
+        System.out.println("Damage: " + geralt.characterDamage());
+        System.out.println("Speed: " + geralt.characterSpeed());
+```
+#### Output
+```
+This is your character Geralt
+He use Heavy Armor Set that increases health to 60%, but decrease speed to 50% and damage to 20%
+He belongs to Wolf school that increases damage to 30%, health to 10% and speed to 15%
+
+Your Characteristics: 
+Health: 176.0
+Damage: 15.600000000000001
+Speed: 2.3
+```
+
 
 ### Decoartor implemetation:
 ##### I have interface Witcher in which I declare all methods
