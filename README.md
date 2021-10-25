@@ -1,62 +1,53 @@
-# Witcher-Decorator
- This is my implementation of decorator pattern.
- I decided to implement this strategy by using my favorite game Witcher3
-## How this program works:
- In this program you can create your game character (Witcher).
- During creation, you can choose from which school this witcher is and 
- choose type of armor for him. Chosen school and armor affects to characteristics of witcher.
+# SQLAlchemy Authorization
+This project is example of using authorization and verifying tokens.
+If you authenticate correctly, you will get token. Provide this token to path in order to get access to restricted data.
 
-#### In program, you can find this schools:
+### Group Aiya Zeinulla, Kaiyrkeldi Kabken, Nurtileu Shaizolla (WE ALL FROM SE-2008) 
+## Installation
+### Install Flask, SQLAlchemy, JWT 
 ```
-Wolf, Bear, Cat
+pip install flask, pyjwt, Flask-SQLAlchemy
 ```
-#### Type of armor:
-```
-Heavy, Light, Magical
-```
+Change path in test.py file to path where project located on your system
 
-For instance if your witcher from school of Wolf - it increases health to 60%, but decrease speed to 50% and damage to 20%.
+```python
+sys.path.insert(0,'YOUR_PATH')
 
-And if he uses Heavy Armor Set it increases damage to 30%, health to 10% and speed to 15%.
-
-#### By default, your character have:
-```
-Health: 100
-Damage: 15
-Speed: 4.0
-```
-#### And after choosing this school and Armor:
-```
-Health: 176.0
-Damage: 15.6
-Speed: 2.3
-```
-#### Code Example
-```
-        Witcher geralt = new WolfSchoolDecorator(new HeavyArmorDecorator(new MainCharacter("Geralt")));
-        System.out.println(geralt.characterInfo());
-        System.out.println("Your Characteristics: ");
-        System.out.println("Health: " + geralt.characterHealth());
-        System.out.println("Damage: " + geralt.characterDamage());
-        System.out.println("Speed: " + geralt.characterSpeed());
-```
-#### Output
-```
-This is your character Geralt
-He use Heavy Armor Set that increases health to 60%, but decrease speed to 50% and damage to 20%
-He belongs to Wolf school that increases damage to 30%, health to 10% and speed to 15%
-
-Your Characteristics: 
-Health: 176.0
-Damage: 15.600000000000001
-Speed: 2.3
 ```
 
+Create table in PostgreSQL by using SQL dump file that locates in this repository
+Change URI password, username and database name in code
+```python
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://YOUR_USERNAME:DATABSE_PASSWORD@localhost/DATABASE_NAME'
+```
+## Usage
+```python
+from src import db
+db.start()
+```
+## Example
+Input correct password and login
+![image](https://user-images.githubusercontent.com/82699886/138740304-90c66916-276e-4003-a197-508780e85892.png)
 
-### Decoartor implemetation:
-##### I have interface Witcher in which I declare all methods
-##### Concrete component in my code is MainCharacter class
-##### Base decorator is WitcherDecarator class which is super class for other Concrete Decorators
-##### Concrete decorators are all schools and armors in game that changes character
+After that you get token
+![image](https://user-images.githubusercontent.com/82699886/138740143-52c0947c-4b60-4d53-9c35-015a1b9d22a7.png)
 
-I have Concrete Decorators - schools and armor types which extends from Base Decorator "WitcherDecorator" and modify main character health, speed, damage
+Provide token that you recieve after succesfull authentication to path like that: 
+![image](https://user-images.githubusercontent.com/82699886/138740113-4bf35bf2-06ad-4bab-9d46-017a75cb9bc1.png)
+```
+http://127.0.0.1:5000/protected?token= YOUR TOKEN HERE
+```
+    
+    
+    
+    
+If you provide wrong password or login
+![image](https://user-images.githubusercontent.com/82699886/138740591-7f08ef0d-7aee-4936-b983-d8d5c306c65b.png)
+
+Then you get html text about it
+![image](https://user-images.githubusercontent.com/82699886/138740631-32c662c6-4679-470d-b502-16b6e410c7b2.png)
+
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
